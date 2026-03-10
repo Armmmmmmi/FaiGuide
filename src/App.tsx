@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  BookOpen, Layers, CheckCircle2, Terminal, Monitor, 
-  AlertTriangle, Box, Menu, X, ChevronRight, Server, 
+import {
+  BookOpen, Layers, CheckCircle2, Terminal, Monitor,
+  AlertTriangle, Box, Menu, X, ChevronRight, Server,
   Cpu, HardDrive, Database, Code, Globe, Zap
 } from 'lucide-react';
 import CodeBlock from './components/CodeBlock';
 import Tabs from './components/Tabs';
 
-const Highlight = ({ children }: { children: React.ReactNode }) => (
+const Highlight = ({ children }: { children: ReactNode }) => (
   <span className="text-white font-medium bg-white/10 px-1.5 py-0.5 rounded-md mx-0.5 transition-colors hover:bg-white/20">{children}</span>
 );
 
@@ -27,20 +27,22 @@ const itemVariants = {
 
 const IntroSection = () => (
   <section id="intro" className="scroll-mt-24 mb-24">
-    <motion.div 
+    <motion.div
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
     >
-      <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-6">
-        คู่มือการติดตั้งระบบ <br/>
-        <span className="text-zinc-400">
+      <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-semibold tracking-tight mb-6">
+        <span className="inline-block pb-2 pt-4 text-transparent bg-clip-text bg-[linear-gradient(to_right,#6b7280,#e5e7eb,#9ca3af,#ffffff,#6b7280)] bg-[length:200%_auto] animate-text-gradient drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] leading-normal">
+          คู่มือการติดตั้งระบบ
+        </span> <br />
+        <span className="inline-block pb-2 pt-1 text-transparent bg-clip-text bg-[linear-gradient(to_right,#6b7280,#e5e7eb,#9ca3af,#ffffff,#6b7280)] bg-[length:200%_auto] animate-text-gradient drop-shadow-[0_0_15px_rgba(255,255,255,0.3)] leading-normal">
           Function Analysis Intelligence
         </span>
       </motion.h1>
       <motion.p variants={itemVariants} className="text-zinc-400 text-lg md:text-xl mb-12 max-w-2xl font-light">
-        ฉบับทางการสำหรับการติดตั้งและเริ่มต้นใช้งานระบบ อัปเดตล่าสุด: 9 มีนาคม 2026
+        ฉบับทางการสำหรับการติดตั้งและเริ่มต้นใช้งานระบบ อัปเดตล่าสุด: 9 มีนาคม 2026 By CDGS | T01175
       </motion.p>
 
       <motion.div variants={containerVariants} className="grid md:grid-cols-3 gap-6">
@@ -78,7 +80,7 @@ const IntroSection = () => (
 
 const OverviewSection = () => (
   <section id="overview" className="scroll-mt-24 mb-24">
-    <motion.div 
+    <motion.div
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -87,7 +89,7 @@ const OverviewSection = () => (
       <motion.h2 variants={itemVariants} className="text-3xl font-semibold tracking-tight text-white mb-10 flex items-center">
         <Layers className="mr-4 text-white" strokeWidth={1.5} /> ภาพรวมของระบบ
       </motion.h2>
-      
+
       <div className="space-y-10">
         <motion.div variants={itemVariants}>
           <h3 className="text-xl font-medium text-white mb-6">องค์ประกอบหลัก</h3>
@@ -98,8 +100,8 @@ const OverviewSection = () => (
               { title: 'Ollama', desc: 'Local LLM Server (Port 11434)', icon: Cpu },
               { title: 'Qdrant', desc: 'Vector Database สำหรับ RAG (Port 6333)', icon: Database },
             ].map((item, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
                 className="flex items-start p-5 bg-[#0a0a0a] border border-white/10 rounded-2xl transition-colors"
               >
@@ -159,7 +161,7 @@ const OverviewSection = () => (
 
 const PrereqSection = () => (
   <section id="prereq" className="scroll-mt-24 mb-24">
-    <motion.div 
+    <motion.div
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -172,7 +174,7 @@ const PrereqSection = () => (
       <div className="grid md:grid-cols-2 gap-8">
         <motion.div variants={itemVariants}>
           <h3 className="text-xl font-medium text-white mb-6 flex items-center">
-            <Code className="mr-3 text-zinc-400" size={20} strokeWidth={1.5}/> ซอฟต์แวร์ที่ต้องติดตั้ง
+            <Code className="mr-3 text-zinc-400" size={20} strokeWidth={1.5} /> ซอฟต์แวร์ที่ต้องติดตั้ง
           </h3>
           <ul className="space-y-3">
             {[
@@ -184,8 +186,8 @@ const PrereqSection = () => (
               { name: 'Docker', desc: ' (สำหรับรัน Qdrant)', highlight: true },
               { name: 'Google Gemini API Key', desc: ' (สำหรับฟังก์ชัน Judge)', highlight: true }
             ].map((item, i) => (
-              <motion.li 
-                key={i} 
+              <motion.li
+                key={i}
                 whileHover={{ x: 5, backgroundColor: 'rgba(255,255,255,0.05)' }}
                 className="flex items-center text-zinc-300 bg-[#0a0a0a] border border-white/10 px-5 py-3 rounded-xl transition-colors"
               >
@@ -198,7 +200,7 @@ const PrereqSection = () => (
 
         <motion.div variants={itemVariants}>
           <h3 className="text-xl font-medium text-white mb-6 flex items-center">
-            <HardDrive className="mr-3 text-zinc-400" size={20} strokeWidth={1.5}/> คุณสมบัติเครื่องขั้นต่ำที่แนะนำ
+            <HardDrive className="mr-3 text-zinc-400" size={20} strokeWidth={1.5} /> คุณสมบัติเครื่องขั้นต่ำที่แนะนำ
           </h3>
           <div className="grid grid-cols-2 gap-4">
             <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl transition-transform">
@@ -230,7 +232,7 @@ const PrereqSection = () => (
 
 const InstallSection = () => (
   <section id="install" className="scroll-mt-24 mb-24">
-    <motion.div 
+    <motion.div
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -364,9 +366,9 @@ const InstallSection = () => (
           <h3 className="text-2xl font-medium text-white mb-6">6. การตั้งค่า Backend</h3>
           <div className="text-zinc-400 space-y-3">
             <CodeBlock code={`cd backend\nnpm install\n# (Optional) คอมไพล์ TypeScript\nnpx tsc`} />
-            
+
             <div className="mt-6 p-6 bg-[#0a0a0a] border border-white/10 rounded-2xl">
-              <h4 className="text-white font-medium mb-3 flex items-center"><AlertTriangle size={18} className="mr-3 text-zinc-400"/> กรณีพบปัญหา better-sqlite3</h4>
+              <h4 className="text-white font-medium mb-3 flex items-center"><AlertTriangle size={18} className="mr-3 text-zinc-400" /> กรณีพบปัญหา better-sqlite3</h4>
               <p className="text-sm text-zinc-400 mb-4">อาจต้องติดตั้ง Build Tools เพิ่มเติม:</p>
               <Tabs tabs={[
                 {
@@ -418,7 +420,7 @@ const InstallSection = () => (
           <h3 className="text-2xl font-medium text-white mb-6">10. การเริ่มต้นใช้งานระบบ</h3>
           <div className="text-zinc-400 space-y-6">
             <p>เปิด Terminal จำนวน 3 หน้าต่าง:</p>
-            
+
             <motion.div whileHover={{ scale: 1.01 }} className="bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden transition-transform">
               <div className="bg-white/5 px-5 py-3 text-sm font-medium text-white border-b border-white/5">หน้าต่างที่ 1: รัน Ollama</div>
               <div className="p-2">
@@ -451,7 +453,7 @@ const InstallSection = () => (
 
 const VerifySection = () => (
   <section id="verify" className="scroll-mt-24 mb-24">
-    <motion.div 
+    <motion.div
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -468,9 +470,9 @@ const VerifySection = () => (
           { title: 'Backend', url: 'http://127.0.0.1:3000', expected: 'ตอบสนองโดยไม่แสดงข้อผิดพลาดร้ายแรง' },
           { title: 'Frontend', url: 'http://localhost:5173', expected: 'หน้าเว็บของ Function Analysis Intelligence' },
         ].map((item, i) => (
-          <motion.div 
+          <motion.div
             variants={itemVariants}
-            key={i} 
+            key={i}
             whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
             className="bg-[#0a0a0a] border border-white/10 p-6 rounded-3xl transition-all duration-300"
           >
@@ -491,7 +493,7 @@ const VerifySection = () => (
           <li>ระบุ <Highlight>Project Path</Highlight> ของโครงการที่ต้องการสแกน</li>
           <li>กดปุ่ม <Highlight>Scan</Highlight></li>
           <li>รอให้ระบบประมวลผลจนเสร็จสิ้น</li>
-          <motion.li 
+          <motion.li
             whileHover={{ x: 5 }}
             className="text-white mt-4 list-none flex items-center bg-white/5 p-4 rounded-xl w-fit border border-white/10 transition-transform"
           >
@@ -531,7 +533,7 @@ const TroubleSection = () => {
 
   return (
     <section id="troubleshoot" className="scroll-mt-24 mb-24">
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -544,7 +546,7 @@ const TroubleSection = () => {
         <div className="space-y-3">
           {faqs.map((faq, i) => (
             <motion.div variants={itemVariants} key={i} className="border border-white/10 rounded-2xl overflow-hidden bg-[#0a0a0a]">
-              <button 
+              <button
                 className="w-full px-6 py-5 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
               >
@@ -553,7 +555,7 @@ const TroubleSection = () => {
               </button>
               <AnimatePresence>
                 {openIndex === i && (
-                  <motion.div 
+                  <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -575,7 +577,7 @@ const TroubleSection = () => {
 
 const SummarySection = () => (
   <section id="summary" className="scroll-mt-24 mb-24">
-    <motion.div 
+    <motion.div
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -664,7 +666,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen bg-black text-white font-sans selection:bg-white/20">
-      
+
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-black/80 backdrop-blur-md border-b border-white/10 z-50 flex items-center justify-between px-4">
         <div className="font-semibold text-lg text-white tracking-tight">
@@ -698,8 +700,8 @@ export default function App() {
                 onClick={() => scrollToSection(section.id)}
                 className={`
                   w-full flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200
-                  ${isActive 
-                    ? 'bg-white/10 text-white' 
+                  ${isActive
+                    ? 'bg-white/10 text-white'
                     : 'text-zinc-400 hover:bg-white/5 hover:text-white'
                   }
                 `}
@@ -710,7 +712,7 @@ export default function App() {
             );
           })}
         </nav>
-        
+
         <div className="p-6 border-t border-white/10 text-xs text-zinc-500 text-center font-mono">
           v1.0.0 &copy; 2026
         </div>

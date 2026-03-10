@@ -5,6 +5,16 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+@keyframes text-gradient {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animate-text-gradient {
+  animation: text-gradient 8s linear infinite;
+}
+
 body {
   background-color: #000000;
   color: #f5f5f7;
@@ -18,13 +28,16 @@ body {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #333333;
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #555555;
 }
