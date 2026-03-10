@@ -8,8 +8,8 @@ import {
 import CodeBlock from './components/CodeBlock';
 import Tabs from './components/Tabs';
 
-const Highlight = ({ children }: { children: ReactNode }) => (
-  <span className="text-white font-medium bg-white/10 px-1.5 py-0.5 rounded-md mx-0.5 transition-colors hover:bg-white/20">{children}</span>
+const Highlight = ({ children, colorClass = "text-white bg-white/10 hover:bg-white/20", glowClass = "" }: { children: ReactNode, colorClass?: string, glowClass?: string }) => (
+  <span className={`font-medium px-1.5 py-0.5 rounded-md mx-0.5 transition-colors ${colorClass} ${glowClass}`}>{children}</span>
 );
 
 const containerVariants = {
@@ -46,17 +46,17 @@ const IntroSection = () => (
       </motion.p>
 
       <motion.div variants={containerVariants} className="grid md:grid-cols-3 gap-6">
-        <motion.div variants={itemVariants} className="bg-[#0a0a0a] border border-white/10 p-8 rounded-3xl hover:bg-white/5 hover:scale-[1.02] transition-all duration-300">
-          <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 text-white">
+        <motion.div variants={itemVariants} className="bg-[#0a0a0a] border border-white/10 p-8 rounded-3xl transition-all duration-300 hover:border-yellow-400/30 hover:shadow-[0_0_15px_rgba(250,204,21,0.15)] hover:bg-white/5 hover:scale-[1.02]">
+          <div className="w-12 h-12 bg-yellow-400/10 rounded-2xl flex items-center justify-center mb-6 text-yellow-500 drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]">
             <Zap size={24} strokeWidth={1.5} />
           </div>
           <h3 className="text-xl font-medium text-white mb-3">หลักการและเหตุผล</h3>
           <p className="text-zinc-400 text-sm leading-relaxed">
-            ระบบสำหรับวิเคราะห์โค้ดเชิงลึก ผสานการทำงานของ <Highlight>Backend</Highlight>, <Highlight>Frontend</Highlight>, <Highlight>Local AI</Highlight> และ <Highlight>Vector DB</Highlight> เพื่อรองรับการอธิบายโค้ดและ RAG
+            ระบบสำหรับวิเคราะห์โค้ดเชิงลึก ผสานการทำงานของ <Highlight colorClass="text-yellow-400 bg-yellow-400/10 hover:bg-yellow-400/20" glowClass="drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]">Backend</Highlight>, <Highlight colorClass="text-emerald-400 bg-emerald-400/10 hover:bg-emerald-400/20" glowClass="drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]">Frontend</Highlight>, <Highlight colorClass="text-white bg-white/10 hover:bg-white/20" glowClass="drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">Local AI</Highlight> และ <Highlight colorClass="text-red-500 bg-red-500/10 hover:bg-red-500/20" glowClass="drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]">Vector DB</Highlight> เพื่อรองรับการอธิบายโค้ดและ RAG
           </p>
         </motion.div>
-        <motion.div variants={itemVariants} className="bg-[#0a0a0a] border border-white/10 p-8 rounded-3xl hover:bg-white/5 hover:scale-[1.02] transition-all duration-300">
-          <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 text-white">
+        <motion.div variants={itemVariants} className="bg-[#0a0a0a] border border-white/10 p-8 rounded-3xl transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_15px_rgba(52,211,153,0.15)] hover:bg-white/5 hover:scale-[1.02]">
+          <div className="w-12 h-12 bg-emerald-400/10 rounded-2xl flex items-center justify-center mb-6 text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]">
             <CheckCircle2 size={24} strokeWidth={1.5} />
           </div>
           <h3 className="text-xl font-medium text-white mb-3">วัตถุประสงค์</h3>
@@ -64,13 +64,13 @@ const IntroSection = () => (
             อธิบายขั้นตอนการติดตั้งอย่างเป็นทางการ กำหนดมาตรฐานสภาพแวดล้อม และเป็นคู่มืออ้างอิงในการแก้ไขปัญหาเบื้องต้น
           </p>
         </motion.div>
-        <motion.div variants={itemVariants} className="bg-[#0a0a0a] border border-white/10 p-8 rounded-3xl hover:bg-white/5 hover:scale-[1.02] transition-all duration-300">
-          <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center mb-6 text-white">
+        <motion.div variants={itemVariants} className="bg-[#0a0a0a] border border-white/10 p-8 rounded-3xl transition-all duration-300 hover:border-blue-400/30 hover:shadow-[0_0_15px_rgba(96,165,250,0.15)] hover:bg-white/5 hover:scale-[1.02]">
+          <div className="w-12 h-12 bg-blue-400/10 rounded-2xl flex items-center justify-center mb-6 text-blue-400 drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">
             <Box size={24} strokeWidth={1.5} />
           </div>
           <h3 className="text-xl font-medium text-white mb-3">ขอบเขต</h3>
           <p className="text-zinc-400 text-sm leading-relaxed">
-            ครอบคลุมการติดตั้งเครื่องมือพื้นฐาน, <Highlight>Backend</Highlight>, <Highlight>Frontend</Highlight>, <Highlight>AI Models</Highlight>, <Highlight>Qdrant</Highlight> และการตั้งค่า Environment Variables
+            ครอบคลุมการติดตั้งเครื่องมือพื้นฐาน, <Highlight colorClass="text-yellow-400 bg-yellow-400/10 hover:bg-yellow-400/20" glowClass="drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]">Backend</Highlight>, <Highlight colorClass="text-emerald-400 bg-emerald-400/10 hover:bg-emerald-400/20" glowClass="drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]">Frontend</Highlight>, <Highlight colorClass="text-white bg-white/10 hover:bg-white/20" glowClass="drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">AI Models</Highlight>, <Highlight colorClass="text-red-500 bg-red-500/10 hover:bg-red-500/20" glowClass="drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]">Qdrant</Highlight> และการตั้งค่า Environment Variables
           </p>
         </motion.div>
       </motion.div>
@@ -95,21 +95,21 @@ const OverviewSection = () => (
           <h3 className="text-xl font-medium text-white mb-6">องค์ประกอบหลัก</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              { title: 'Backend', desc: 'Node.js, Express, TypeScript (Port 3000)', icon: Server },
-              { title: 'Frontend', desc: 'Vue.js, Vite (Port 5173)', icon: Globe },
-              { title: 'Ollama', desc: 'Local LLM Server (Port 11434)', icon: Cpu },
-              { title: 'Qdrant', desc: 'Vector Database สำหรับ RAG (Port 6333)', icon: Database },
+              { title: 'Backend', desc: 'Node.js, Express, TypeScript (Port 3000)', icon: Server, color: 'text-yellow-400', glow: 'drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]', bg: 'bg-yellow-400/10' },
+              { title: 'Frontend', desc: 'Vue.js, Vite (Port 5173)', icon: Globe, color: 'text-emerald-400', glow: 'drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]', bg: 'bg-emerald-400/10' },
+              { title: 'Ollama', desc: 'Local LLM Server (Port 11434)', icon: Cpu, color: 'text-white', glow: 'drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]', bg: 'bg-white/10' },
+              { title: 'Qdrant', desc: 'Vector Database สำหรับ RAG (Port 6333)', icon: Database, color: 'text-red-500', glow: 'drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]', bg: 'bg-red-500/10' },
             ].map((item, i) => (
               <motion.div
                 key={i}
                 whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
                 className="flex items-start p-5 bg-[#0a0a0a] border border-white/10 rounded-2xl transition-colors"
               >
-                <div className="p-2.5 rounded-xl bg-white/5 text-white mr-4">
+                <div className={`p-2.5 rounded-xl ${item.bg} ${item.color} ${item.glow} mr-4`}>
                   <item.icon size={20} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h4 className="font-medium text-white">{item.title}</h4>
+                  <h4 className={`font-medium ${item.color} ${item.glow}`}>{item.title}</h4>
                   <p className="text-sm text-zinc-400 mt-1.5">{item.desc}</p>
                 </div>
               </motion.div>
@@ -129,15 +129,15 @@ const OverviewSection = () => (
               </thead>
               <tbody className="divide-y divide-white/5 text-zinc-400">
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 font-mono text-white"><Highlight>qwen2.5-coder:7b</Highlight></td>
+                  <td className="px-6 py-4 font-mono text-white"><Highlight colorClass="text-blue-400 bg-blue-400/10 hover:bg-blue-400/20" glowClass="drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">qwen2.5-coder:7b</Highlight></td>
                   <td className="px-6 py-4">ใช้อธิบายโค้ดและเป็นโมเดลหลักของระบบ</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 font-mono text-white"><Highlight>gemma2:2b</Highlight></td>
+                  <td className="px-6 py-4 font-mono text-white"><Highlight colorClass="text-purple-400 bg-purple-400/10 hover:bg-purple-400/20" glowClass="drop-shadow-[0_0_8px_rgba(192,132,252,0.6)]">gemma2:2b</Highlight></td>
                   <td className="px-6 py-4">ใช้แปลภาษาและปรับแก้ข้อความที่ผิดปกติ</td>
                 </tr>
                 <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 font-mono text-white"><Highlight>qwen3-embedding:4b</Highlight></td>
+                  <td className="px-6 py-4 font-mono text-white"><Highlight colorClass="text-cyan-400 bg-cyan-400/10 hover:bg-cyan-400/20" glowClass="drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]">qwen3-embedding:4b</Highlight></td>
                   <td className="px-6 py-4">สร้าง embedding vectors สำหรับการค้นคืนข้อมูล</td>
                 </tr>
               </tbody>
@@ -146,11 +146,11 @@ const OverviewSection = () => (
         </motion.div>
 
         <motion.div variants={itemVariants} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex items-start hover:bg-white/10 transition-colors">
-          <Zap className="text-white mt-0.5 mr-4 shrink-0" size={20} strokeWidth={1.5} />
+          <Zap className="text-yellow-400 mt-0.5 mr-4 shrink-0 drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]" size={20} strokeWidth={1.5} />
           <div>
-            <h4 className="font-medium text-white mb-1.5">บริการภายนอก (Optional)</h4>
+            <h4 className="font-medium text-yellow-400 mb-1.5 drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]">Offline Privacy</h4>
             <p className="text-sm text-zinc-400 leading-relaxed">
-              รองรับ <Highlight>Google Gemini API</Highlight> (gemini-2.5-flash) สำหรับฟังก์ชัน Judge เพื่อตรวจสอบความถูกต้องของคำอธิบายจาก AI ระบบสามารถทำงานได้แม้ไม่มี API Key นี้
+              ระบบทั้งหมดทำงานแบบ <Highlight>Local 100%</Highlight> ไม่มีการส่งข้อมูลโค้ดหรือฐานข้อมูลออกสู่อินเทอร์เน็ต เพื่อความปลอดภัยและเป็นส่วนตัวสูงสุด
             </p>
           </div>
         </motion.div>
@@ -178,21 +178,20 @@ const PrereqSection = () => (
           </h3>
           <ul className="space-y-3">
             {[
-              { name: 'Git', highlight: true },
-              { name: 'Node.js', desc: ' เวอร์ชัน 18 ขึ้นไป', highlight: true },
-              { name: 'npm', highlight: true },
-              { name: 'Ollama', highlight: true },
-              { name: 'Qdrant', highlight: true },
-              { name: 'Docker', desc: ' (สำหรับรัน Qdrant)', highlight: true },
-              { name: 'Google Gemini API Key', desc: ' (สำหรับฟังก์ชัน Judge)', highlight: true }
+              { name: 'Git', highlight: true, color: 'text-orange-500 bg-orange-500/10 hover:bg-orange-500/20', glow: 'drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]' },
+              { name: 'Node.js', desc: ' เวอร์ชัน 18 ขึ้นไป', highlight: true, color: 'text-green-500 bg-green-500/10 hover:bg-green-500/20', glow: 'drop-shadow-[0_0_8px_rgba(34,197,94,0.6)]' },
+              { name: 'npm', highlight: true, color: 'text-red-500 bg-red-500/10 hover:bg-red-500/20', glow: 'drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]' },
+              { name: 'Ollama', highlight: true, color: 'text-white bg-white/10 hover:bg-white/20', glow: 'drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]' },
+              { name: 'Qdrant', highlight: true, color: 'text-red-500 bg-red-500/10 hover:bg-red-500/20', glow: 'drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]' },
+              { name: 'Docker', desc: ' (สำหรับรัน Qdrant)', highlight: true, color: 'text-blue-500 bg-blue-500/10 hover:bg-blue-500/20', glow: 'drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]' }
             ].map((item, i) => (
               <motion.li
                 key={i}
                 whileHover={{ x: 5, backgroundColor: 'rgba(255,255,255,0.05)' }}
                 className="flex items-center text-zinc-300 bg-[#0a0a0a] border border-white/10 px-5 py-3 rounded-xl transition-colors"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-white mr-4"></div>
-                <span>{item.highlight ? <Highlight>{item.name}</Highlight> : item.name}{item.desc}</span>
+                <div className={`w-1.5 h-1.5 rounded-full ${item.color ? item.color.split(' ')[0] : 'bg-white'} mr-4 ${item.glow || ''}`}></div>
+                <span>{item.highlight ? <Highlight colorClass={item.color} glowClass={item.glow}>{item.name}</Highlight> : item.name}{item.desc}</span>
               </motion.li>
             ))}
           </ul>
@@ -203,25 +202,25 @@ const PrereqSection = () => (
             <HardDrive className="mr-3 text-zinc-400" size={20} strokeWidth={1.5} /> คุณสมบัติเครื่องขั้นต่ำที่แนะนำ
           </h3>
           <div className="grid grid-cols-2 gap-4">
-            <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl transition-transform">
+            <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl transition-all duration-300 hover:border-purple-400/30 hover:shadow-[0_0_15px_rgba(192,132,252,0.15)]">
               <div className="text-zinc-500 text-sm mb-2">RAM</div>
-              <div className="text-white font-medium"><Highlight>ขั้นต่ำ 8 GB</Highlight></div>
+              <div className="text-white font-medium"><Highlight colorClass="text-purple-400 bg-purple-400/10 hover:bg-purple-400/20" glowClass="drop-shadow-[0_0_8px_rgba(192,132,252,0.6)]">ขั้นต่ำ 8 GB</Highlight></div>
               <div className="text-zinc-400 text-xs mt-1.5">แนะนำ 16 GB ขึ้นไป</div>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl transition-transform">
+            <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl transition-all duration-300 hover:border-cyan-400/30 hover:shadow-[0_0_15px_rgba(34,211,238,0.15)]">
               <div className="text-zinc-500 text-sm mb-2">พื้นที่ว่างในดิสก์</div>
-              <div className="text-white font-medium"><Highlight>ขั้นต่ำ 15 GB</Highlight></div>
+              <div className="text-white font-medium"><Highlight colorClass="text-cyan-400 bg-cyan-400/10 hover:bg-cyan-400/20" glowClass="drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]">ขั้นต่ำ 15 GB</Highlight></div>
               <div className="text-zinc-400 text-xs mt-1.5">แนะนำ 20 GB ขึ้นไป</div>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl transition-transform">
+            <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl transition-all duration-300 hover:border-blue-400/30 hover:shadow-[0_0_15px_rgba(96,165,250,0.15)]">
               <div className="text-zinc-500 text-sm mb-2">CPU</div>
-              <div className="text-white font-medium"><Highlight>ขั้นต่ำ 4 Cores</Highlight></div>
+              <div className="text-white font-medium"><Highlight colorClass="text-blue-400 bg-blue-400/10 hover:bg-blue-400/20" glowClass="drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">ขั้นต่ำ 4 Cores</Highlight></div>
               <div className="text-zinc-400 text-xs mt-1.5">แนะนำ 8 Cores</div>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl transition-transform">
+            <motion.div whileHover={{ scale: 1.05 }} className="bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl transition-all duration-300 hover:border-emerald-400/30 hover:shadow-[0_0_15px_rgba(52,211,153,0.15)]">
               <div className="text-zinc-500 text-sm mb-2">GPU</div>
-              <div className="text-white font-medium text-sm">ไม่จำเป็นต้องมี</div>
-              <div className="text-zinc-400 text-xs mt-1.5">แต่แนะนำเพื่อประสิทธิภาพ</div>
+              <div className="text-white font-medium text-sm"><Highlight colorClass="text-emerald-400 bg-emerald-400/10 hover:bg-emerald-400/20" glowClass="drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]">จำเป็นต้องมี</Highlight></div>
+              <div className="text-emerald-400/80 text-xs mt-1.5 drop-shadow-[0_0_5px_rgba(52,211,153,0.3)]">VRAM 8GB ขึ้นไป (เพื่อความเร็ว)</div>
             </motion.div>
           </div>
         </motion.div>
@@ -260,9 +259,9 @@ const InstallSection = () => (
             {
               id: 'git-mac', label: 'macOS', content: (
                 <div className="text-zinc-400 space-y-3">
-                  <p>วิธีที่ 1: ติดตั้งผ่าน <Highlight>Xcode Command Line Tools</Highlight></p>
+                  <p>วิธีที่ 1: ติดตั้งผ่าน <Highlight colorClass="text-blue-400 bg-blue-400/10 hover:bg-blue-400/20" glowClass="drop-shadow-[0_0_8px_rgba(96,165,250,0.6)]">Xcode Command Line Tools</Highlight></p>
                   <CodeBlock code="xcode-select --install" />
-                  <p>วิธีที่ 2: ติดตั้งผ่าน <Highlight>Homebrew</Highlight></p>
+                  <p>วิธีที่ 2: ติดตั้งผ่าน <Highlight colorClass="text-amber-500 bg-amber-500/10 hover:bg-amber-500/20" glowClass="drop-shadow-[0_0_8px_rgba(245,158,11,0.6)]">Homebrew</Highlight></p>
                   <CodeBlock code="brew install git" />
                   <p>ตรวจสอบการติดตั้ง:</p>
                   <CodeBlock code="git --version" />
@@ -280,7 +279,7 @@ const InstallSection = () => (
               id: 'node-win', label: 'Windows', content: (
                 <div className="text-zinc-400 space-y-3">
                   <p>1. ไปที่เว็บไซต์ <a href="https://nodejs.org/" target="_blank" rel="noreferrer" className="text-white hover:underline underline-offset-4">nodejs.org</a></p>
-                  <p>2. ดาวน์โหลดเวอร์ชัน <Highlight>LTS</Highlight> และติดตั้ง</p>
+                  <p>2. ดาวน์โหลดเวอร์ชัน <Highlight colorClass="text-green-500 bg-green-500/10 hover:bg-green-500/20" glowClass="drop-shadow-[0_0_8px_rgba(34,197,94,0.6)]">LTS</Highlight> และติดตั้ง</p>
                   <p>3. ตรวจสอบการติดตั้ง:</p>
                   <CodeBlock code={`node --version\nnpm --version`} />
                 </div>
@@ -289,7 +288,7 @@ const InstallSection = () => (
             {
               id: 'node-mac', label: 'macOS', content: (
                 <div className="text-zinc-400 space-y-3">
-                  <p>ติดตั้งผ่าน <Highlight>Homebrew</Highlight> หรือ <Highlight>nvm</Highlight>:</p>
+                  <p>ติดตั้งผ่าน <Highlight colorClass="text-amber-500 bg-amber-500/10 hover:bg-amber-500/20" glowClass="drop-shadow-[0_0_8px_rgba(245,158,11,0.6)]">Homebrew</Highlight> หรือ <Highlight colorClass="text-indigo-400 bg-indigo-400/10 hover:bg-indigo-400/20" glowClass="drop-shadow-[0_0_8px_rgba(129,140,248,0.6)]">nvm</Highlight>:</p>
                   <CodeBlock code={`brew install node@18\n# หรือ\nnvm install 18\nnvm use 18`} />
                   <p>ตรวจสอบการติดตั้ง:</p>
                   <CodeBlock code={`node --version\nnpm --version`} />
@@ -316,7 +315,7 @@ const InstallSection = () => (
             {
               id: 'ollama-mac', label: 'macOS', content: (
                 <div className="text-zinc-400 space-y-3">
-                  <p>ติดตั้งผ่าน <Highlight>Homebrew</Highlight>:</p>
+                  <p>ติดตั้งผ่าน <Highlight colorClass="text-amber-500 bg-amber-500/10 hover:bg-amber-500/20" glowClass="drop-shadow-[0_0_8px_rgba(245,158,11,0.6)]">Homebrew</Highlight>:</p>
                   <CodeBlock code="brew install ollama" />
                   <p>ตรวจสอบการติดตั้ง:</p>
                   <CodeBlock code="ollama --version" />
@@ -410,8 +409,7 @@ const InstallSection = () => (
           <h3 className="text-2xl font-medium text-white mb-6">9. การกำหนดค่า Environment Variables</h3>
           <div className="text-zinc-400 space-y-3">
             <p>สร้างไฟล์ <code>.env</code> ภายในโฟลเดอร์ <code>backend</code>:</p>
-            <CodeBlock code={`GEMINI_API_KEY=your_api_key_here\nPORT=3000`} language="env" />
-            <p className="text-sm text-zinc-500">ขอ API Key ได้ที่ <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer" className="text-white hover:underline underline-offset-4">aistudio.google.com/apikey</a></p>
+            <CodeBlock code={`PORT=3000`} language="env" />
           </div>
         </motion.div>
 
@@ -465,21 +463,21 @@ const VerifySection = () => (
 
       <div className="grid md:grid-cols-2 gap-6 mb-10">
         {[
-          { title: 'Ollama', url: 'http://127.0.0.1:11434', expected: 'ข้อความยืนยันว่า Ollama กำลังทำงาน' },
-          { title: 'Qdrant', url: 'http://localhost:6333/dashboard', expected: 'หน้า Qdrant Dashboard' },
-          { title: 'Backend', url: 'http://127.0.0.1:3000', expected: 'ตอบสนองโดยไม่แสดงข้อผิดพลาดร้ายแรง' },
-          { title: 'Frontend', url: 'http://localhost:5173', expected: 'หน้าเว็บของ Function Analysis Intelligence' },
+          { title: 'Ollama', url: 'http://127.0.0.1:11434', expected: 'ข้อความยืนยันว่า Ollama กำลังทำงาน', color: 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]', bg: 'hover:border-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]' },
+          { title: 'Qdrant', url: 'http://localhost:6333/dashboard', expected: 'หน้า Qdrant Dashboard', color: 'text-red-500 drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]', bg: 'hover:border-red-500/30 hover:shadow-[0_0_15px_rgba(239,68,68,0.15)]' },
+          { title: 'Backend', url: 'http://127.0.0.1:3000', expected: 'ตอบสนองโดยไม่แสดงข้อผิดพลาดร้ายแรง', color: 'text-yellow-400 drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]', bg: 'hover:border-yellow-400/30 hover:shadow-[0_0_15px_rgba(250,204,21,0.15)]' },
+          { title: 'Frontend', url: 'http://localhost:5173', expected: 'หน้าเว็บของ Function Analysis Intelligence', color: 'text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]', bg: 'hover:border-emerald-400/30 hover:shadow-[0_0_15px_rgba(52,211,153,0.15)]' },
         ].map((item, i) => (
           <motion.div
             variants={itemVariants}
             key={i}
-            whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.05)' }}
-            className="bg-[#0a0a0a] border border-white/10 p-6 rounded-3xl transition-all duration-300"
+            whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.02)' }}
+            className={`bg-[#0a0a0a] border border-white/10 p-6 rounded-3xl transition-all duration-300 ${item.bg}`}
           >
-            <h4 className="text-lg font-medium text-white mb-2">{item.title}</h4>
-            <a href={item.url} target="_blank" rel="noreferrer" className="text-sm text-white hover:underline underline-offset-4 font-mono block mb-4">{item.url}</a>
+            <h4 className={`text-lg font-medium mb-2 ${item.color}`}>{item.title}</h4>
+            <a href={item.url} target="_blank" rel="noreferrer" className="text-sm text-zinc-300 hover:text-white hover:underline underline-offset-4 font-mono block mb-4 transition-colors">{item.url}</a>
             <div className="flex items-start text-sm text-zinc-400">
-              <CheckCircle2 size={18} className="text-white mr-3 mt-0.5 shrink-0" strokeWidth={1.5} />
+              <CheckCircle2 size={18} className={`mr-3 mt-0.5 shrink-0 ${item.color}`} strokeWidth={1.5} />
               <span>{item.expected}</span>
             </div>
           </motion.div>
@@ -490,14 +488,14 @@ const VerifySection = () => (
         <h3 className="text-xl font-medium text-white mb-6">การทดสอบการใช้งานเบื้องต้น</h3>
         <ol className="list-decimal list-inside space-y-4 text-zinc-400">
           <li>เปิดเว็บเบราว์เซอร์ไปที่ <a href="http://localhost:5173" className="text-white hover:underline underline-offset-4">http://localhost:5173</a></li>
-          <li>ระบุ <Highlight>Project Path</Highlight> ของโครงการที่ต้องการสแกน</li>
-          <li>กดปุ่ม <Highlight>Scan</Highlight></li>
+          <li>ระบุ <Highlight colorClass="text-zinc-300 bg-zinc-400/10 hover:bg-zinc-400/20" glowClass="drop-shadow-[0_0_8px_rgba(161,161,170,0.6)]">Project Path</Highlight> ของโครงการที่ต้องการสแกน</li>
+          <li>กดปุ่ม <Highlight colorClass="text-zinc-300 bg-zinc-400/10 hover:bg-zinc-400/20" glowClass="drop-shadow-[0_0_8px_rgba(161,161,170,0.6)]">Scan</Highlight></li>
           <li>รอให้ระบบประมวลผลจนเสร็จสิ้น</li>
           <motion.li
             whileHover={{ x: 5 }}
-            className="text-white mt-4 list-none flex items-center bg-white/5 p-4 rounded-xl w-fit border border-white/10 transition-transform"
+            className="text-white mt-4 list-none flex items-center bg-white/5 p-4 rounded-xl w-fit border border-emerald-400/20 shadow-[0_0_15px_rgba(52,211,153,0.15)] transition-transform"
           >
-            <CheckCircle2 size={18} className="mr-3" strokeWidth={1.5} /> ตรวจสอบว่ามีรายการฟังก์ชันและรายละเอียดปรากฏในหน้าจอ
+            <CheckCircle2 size={18} className="mr-3 text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]" strokeWidth={1.5} /> ตรวจสอบว่ามีรายการฟังก์ชันและรายละเอียดปรากฏในหน้าจอ
           </motion.li>
         </ol>
       </motion.div>
@@ -602,7 +600,7 @@ const SummarySection = () => (
                 ].map((item, i) => (
                   <tr key={i} className="hover:bg-white/5 transition-colors">
                     <td className="px-6 py-4 font-medium">{item.name}</td>
-                    <td className="px-6 py-4 font-mono text-zinc-400"><Highlight>{item.port}</Highlight></td>
+                    <td className="px-6 py-4 font-mono text-zinc-400"><Highlight colorClass="text-yellow-400 bg-yellow-400/10 hover:bg-yellow-400/20" glowClass="drop-shadow-[0_0_8px_rgba(250,204,21,0.6)]">{item.port}</Highlight></td>
                   </tr>
                 ))}
               </tbody>
@@ -613,7 +611,7 @@ const SummarySection = () => (
         <motion.div variants={itemVariants} className="bg-white/5 border border-white/10 p-8 rounded-3xl flex flex-col justify-center hover:bg-white/10 transition-colors">
           <h3 className="text-xl font-medium text-white mb-4">สรุปผลการติดตั้ง</h3>
           <p className="text-zinc-400 text-sm leading-relaxed mb-4">
-            ระบบ Function Analysis Intelligence จำเป็นต้องอาศัยการติดตั้งเครื่องมือพื้นฐานหลายส่วนร่วมกัน ได้แก่ <Highlight>Git</Highlight>, <Highlight>Node.js</Highlight>, <Highlight>Ollama</Highlight> และ <Highlight>Qdrant</Highlight> รวมถึงการกำหนดค่า Environment Variables ให้ถูกต้อง
+            ระบบ Function Analysis Intelligence จำเป็นต้องอาศัยการติดตั้งเครื่องมือพื้นฐานหลายส่วนร่วมกัน ได้แก่ <Highlight colorClass="text-orange-500 bg-orange-500/10 hover:bg-orange-500/20" glowClass="drop-shadow-[0_0_8px_rgba(249,115,22,0.6)]">Git</Highlight>, <Highlight colorClass="text-green-500 bg-green-500/10 hover:bg-green-500/20" glowClass="drop-shadow-[0_0_8px_rgba(34,197,94,0.6)]">Node.js</Highlight>, <Highlight colorClass="text-white bg-white/10 hover:bg-white/20" glowClass="drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]">Ollama</Highlight> และ <Highlight colorClass="text-red-500 bg-red-500/10 hover:bg-red-500/20" glowClass="drop-shadow-[0_0_8px_rgba(239,68,68,0.6)]">Qdrant</Highlight> รวมถึงการกำหนดค่า Environment Variables ให้ถูกต้อง
           </p>
           <p className="text-zinc-400 text-sm leading-relaxed">
             เมื่อดำเนินการครบถ้วนแล้ว จะสามารถเปิดใช้งานระบบผ่านเว็บเบราว์เซอร์และเริ่มต้นการวิเคราะห์โค้ดได้ทันที
